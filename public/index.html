@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TodoApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>::My todo list::</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style type="text/css">
+      body{
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+
+        .navbar {
+          margin-bottom: 20px;
+        }
+    </style>
+
+   
+  </head>
+
+
+  <body ng-controller="mainController">
+
+    <div class="container">
+
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+ 
+          <a class="navbar-brand" href="#">My todo list</a>
+
+          </div>
+
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#">Link</a></li>
+            </ul>
+
+            <!-- -->
+             
+
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+      <div class="row" style="margin-bottom:15px;">
+        <div class="col-lg-6">
+          <div class="input-group">
+            <input type="text" class="form-control"  id="newItem" name="newItem" placeholder="Title">
+            <span class="input-group-btn">
+              <button class="btn btn-success" type="button" ng-click="addItem()">Add </button>
+            </span>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div><!-- /.row -->
+
+      <!-- Panell -->
+      <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Items list</h3>
+      </div>
+      <div class="panel-body">
+
+        <div class="alert alert-info" ng-show="!todolist.length"> <strong>No item!</strong></div>
+
+        
+         <!-- List group -->
+        <ul class="list-group">
+
+          <li class="list-group-item" ng-repeat="item in todolist"><span class="glyphicon glyphicon-pushpin"></span> {{item.title}}
+           <div class="btn-group-xs pull-right">
+            <button type="button" class="btn btn-default" ng-click="editItem(item)">
+              <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+            <button type="button" class="btn btn-danger" ng-click="delItem(item)">
+              <span class="glyphicon glyphicon-trash"></span>
+            </button>
+           </div>
+          </li>
+
+          <!--
+          <li class="list-group-item">Cras justo odio
+           <div class="btn-group-xs pull-right">
+            <button type="button" class="btn btn-default" >
+              <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+            <button type="button" class="btn btn-danger">
+              <span class="glyphicon glyphicon-trash"></span>
+            </button>
+           </div>
+          </li>
+
+          <li class="list-group-item">Dapibus ac facilisis in
+            <div class="btn-group-xs pull-right">
+            <button type="button" class="btn btn-default" >
+              <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+            <button type="button" class="btn btn-danger">
+              <span class="glyphicon glyphicon-trash"></span>
+            </button>
+           </div>
+          </li>
+          <li class="list-group-item">Morbi leo risus
+            <div class="btn-group-xs pull-right">
+            <button type="button" class="btn btn-default" >
+              <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+            <button type="button" class="btn btn-danger">
+              <span class="glyphicon glyphicon-trash"></span>
+            </button>
+           </div>
+          </li>
+        -->
+
+        </ul>
+
+      </div>
+    </div>
+
+    </div> <!-- /container -->
+
+   <!-- jquery -->
+    <script src="js/jquery.min.js" ></script>
+   <!-- angular -->
+    <script src="js/angular.min.js" ></script>
+   <!-- angular-resource -->
+    <script src="js/angular-resource.min.js" ></script>
+   <!-- todoapp-->
+   <script src="scripts/TodoApp.js" ></script>
+
+  </body>
+
+</html>
